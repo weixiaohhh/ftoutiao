@@ -163,10 +163,12 @@ LOGOUT_URL = reverse_lazy('logout')
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
-QINIU_ACCESS_KEY = 'XOI2XmE0ImhVn8St1YVYhHOP5bEOy01LV1M3kAub'
-QINIU_SECRET_KEY = 'KNcRWe-CJQhn5rFOuDxVDusghCZMA70Ss-smcBT-'
+
+# 七牛图档配置
+QINIU_ACCESS_KEY = '-RrSfuebSkJRhM7Rz6SYixsu7DNR67jP1EFLVjLq'
+QINIU_SECRET_KEY = '2Db413L7M7lH4oYR0oD7il60fZP_FTv-1RD6hvmg'
 QINIU_BUCKET_NAME = 'ftoutiao'
-QINIU_BUCKET_DOMAIN = 'ftoutiao.herokuapp.com/'
+QINIU_BUCKET_DOMAIN = 'ftoutiao.herokuapp.com'
 QINIU_SECURE_URL = False
 
 PREFIX_URL = 'http://'
