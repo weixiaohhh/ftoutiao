@@ -82,8 +82,7 @@ def share(request):
 		form = ShareForm(user=request.user.profile)
 
                     
-	return render(request, 'app/share.html',
-					{'form': form} )
+	return render(request, 'app/share.html',{'form': form} )
 
 @login_required
 def userinfo(request, pk, choice):
