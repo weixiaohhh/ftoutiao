@@ -1,0 +1,118 @@
+
+
+
+{% regroup articles by create_time.date as articles %}
+<ul>
+    {% for article in articles %}
+    <!-- month 是一组月份列表 -->
+        <li>
+           
+
+           <div style="border-bottom: 2px solid #29afec;margin-top:0.5cm;   color: #29afec;font-size: 20px;font-weight: 600; padding: 10px;">
+           <h3>
+               <i class="glyphicon glyphicon-calendar"></i>
+               <spn>{{ article.grouper | date:'D' }}</spn> <small>{{ article.grouper | date:'Y-m-d' }}</small>  </h4>
+           </h3>
+           </div> 
+          
+
+  
+
+            {% for item in article.list %}
+            {% with likes=item.likes.count  users_like=item.likes.all  collection_user=item.collection_user.all followers=item.author.get_follower %}
+            
+            <div class='row' style="border-bottom: 1px dashed #e3ecec;margin-top:1cm;min-height: 83px;">
+                    <div class="col-md-1">
+                         
+                        <div class="btn-group-vertical btn-group-sm" role="group" aria-label="...">
+                        {% if user.is_authenticated %}
+                          <button  class="btn btn-{% if request.user.profile in users_like %}primary{% else %}default{% endif %} like " id="{{ item.id }}" action="{% if request.user.profile in users_like %}un{% endif %}like" >
+                          
+                          <div class='row'>
+                          
+                          <span class="glyphicon glyphicon-thumbs-up"></span>
+                          
+                          </div>
+                          <div class='row'>
+                            <span class="total">{{ likes }}</span>
+                          </div>
+                          
+                          </button>
+                          
+                           <button  class="btn btn-{% if request.user.profile in collection_user %}primary{% else %}default{% endif %} collection" id="{{ item.id }}" action="{% if request.user.profile in collection_user %}un{% endif %}collection">
+                          <span class="glyphicon glyphicon-bookmark"></span>
+                          </button>
+                        {% else %}
+                          <button onClick=" location.href='{% url 'login' %}' " class="btn btn-default">
+                              <div class="row">
+                              
+                                  <span class="glyphicon glyphicon-thumbs-up">
+                                  </span>
+                              </div>
+                              <div class='row'>{{ likes }}</div> 
+                          </button>
+                          <button onClick="location.href='{% url 'login' %}'"  class="btn btn-default">
+                            <span class="glyphicon glyphicon-bookmark"></span>
+                          </button>
+                        {% endif %}
+                        
+                        </div>
+                    </div>
+            
+            
+                <div class="col-md-9" >
+                    <div class='row'>
+                    <a href="{{ item.link }}" >{{ item.title }}</a>
+            
+                    </div>
+                   
+                                    
+                    <div class='row'>
+                        <h4><small>{{ item.getdomain }}</small></h4>
+                    </div>
+                </div>
+                <div class="col-md-1">
+                    <div class="row">
+                    <a href="{% url 'subjectinfo' item.author.user.id 'index' %}"> <img  alt="minggo - 开发者头条"/> </a>
+                    </div>
+                    <div class="row">
+                    <a href="{% url 'subjectinfo' item.author.user.id 'index' %}">{{ item.author }}</a>
+                    </div>
+
+                </div>
+                
+                <div class="col-md-1">
+                    {% if user.is_authenticated %}
+                    <div class="btn-group btn-group-sm" role="group" aria-label="...">
+                         <button  class="btn btn-{% if request.user.profile in followers %}primary{% else %}default{% endif %} following" id="{{ item.id }}" action="{% if request.user.profile in followers %}un{% endif %}following">
+                         关注TA
+                         </button>
+                    </div>
+                    {% else %}
+                    <div class="btn-group btn-group-sm" role="group" aria-label="...">
+                        <button onClick=" location.href='{% url 'login' %}' " class="btn btn-default">
+                        关注TA
+                        </button>
+                    </div>
+                    {% endif %}
+                </div>
+				
+
+
+            </div>
+            {% endwith %}
+            
+            {% endfor %}
+            
+            
+            
+
+
+        </li>
+        <div  id="warning"></div>
+    {% endfor %}
+</ul>
+
+
+
+

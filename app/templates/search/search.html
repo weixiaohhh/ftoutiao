@@ -1,0 +1,121 @@
+{% extends 'base.html' %}
+
+{% load staticfiles %}
+
+{% block body_block %}
+    <h2>Search</h2>
+<div class="row">
+<form action="/search" method="get" class="navbar-form navbar-left" role="search">
+	<div class="form-group">
+		<input type="text" class="form-control" name="q" placeholder="输入搜索内容" value=""/>
+	</div>
+	<button type="submit" class="btn btn-defaul">
+		<span class="glyphicon glyphicon-search"></span>
+	</button>
+</form>
+</div>
+    <div>
+        {% if query %}
+            {% for result in page.object_list %}
+            
+               {% with likes=result.object.likes.count  users_like=result.object.likes.all  collection_user=result.object.collection_user.all followers=result.object.author.get_follower %}
+            
+            <div class='row' style="border-bottom: 1px dashed #e3ecec;margin-top:1cm;min-height: 83px;">
+                    <div class="col-md-1">
+                         
+                        <div class="btn-group-vertical btn-group-sm" role="group" aria-label="...">
+                        {% if user.is_authenticated %}
+                          <button  class="btn btn-{% if request.user.profile in users_like %}primary{% else %}default{% endif %} like " id="{{ result.object.id }}" action="{% if request.user.profile in users_like %}un{% endif %}like" >
+                          
+                          <div class='row'>
+                          
+                          <span class="glyphicon glyphicon-thumbs-up"></span>
+                          
+                          </div>
+                          <div class='row'>
+                            <span class="total">{{ likes }}</span>
+                          </div>
+                          
+                          </button>
+                          
+                           <button  class="btn btn-{% if request.user.profile in collection_user %}primary{% else %}default{% endif %} collection" id="{{ result.object.id }}" action="{% if request.user.profile in collection_user %}un{% endif %}collection">
+                          <span class="glyphicon glyphicon-bookmark"></span>
+                          </button>
+                        {% else %}
+                          <button onClick=" location.href='{% url 'login' %}' " class="btn btn-default">
+                              <div class="row">
+                              
+                                  <span class="glyphicon glyphicon-thumbs-up">
+                                  </span>
+                              </div>
+                              <div class='row'>{{ likes }}</div> 
+                          </button>
+                          <button onClick="location.href='{% url 'login' %}'"  class="btn btn-default">
+                            <span class="glyphicon glyphicon-bookmark"></span>
+                          </button>
+                        {% endif %}
+                        
+                        </div>
+                    </div>
+            
+            
+                <div class="col-md-9" >
+                    <div class='row'>
+                    <a href="{{ result.object.link }}" >{{ result.object.title }}</a>
+            
+                    </div>
+                   
+                                    
+                    <div class='row'>
+                    <h4><small>{{ result.object.getdomain }}</small></h4>
+                    </div>
+                </div>
+                <div class="col-md-1">
+                    <div class="row">
+                    <a href="{% url 'subjectinfo' result.object.author.user.id 'index' %}"> <img  alt="minggo - 开发者头条"/> </a>
+                    </div>
+                    <div class="row">
+                    <a href="{% url 'subjectinfo' result.object.author.user.id 'index' %}">{{ result.object.author }}</a>
+                    </div>
+
+                </div>
+                
+     
+                <div class="col-md-1">
+                    {% if request.user and user.is_authenticated %}
+                    <div class="btn-group btn-group-sm" role="group" aria-label="...">
+                         <button  class="btn btn-{% if request.user.profile in followers %}primary{% else %}default{% endif %} following" id="{{ result.object.pk }}" action="{% if request.user.profile in followers %}un{% endif %}following">
+                         关注TA
+                         </button>
+                    </div>
+                    {% else %}
+                    <div class="btn-group btn-group-sm" role="group" aria-label="...">
+                        <button onClick=" location.href='{% url 'login' %}' " class="btn btn-default">
+                        关注TA
+                        </button>
+                    </div>
+                    {% endif %}
+                </div>
+				
+
+
+            </div>
+            {% endwith %}
+
+            {% empty %}
+                <div class="row"><p>No results found.</p></div>
+            {% endfor %}
+
+            {% if page.has_previous or page.has_next %}
+                <div>
+                    {% if page.has_previous %}<a href="?q={{ query }}&page={{ page.previous_page_number }}">{% endif %}« Previous{% if page.has_previous %}</a>{% endif %}
+                    |
+                    {% if page.has_next %}<a href="?q={{ query }}&page={{ page.next_page_number }}">{% endif %}Next »{% if page.has_next %}</a>{% endif %}
+                </div>
+            {% endif %}
+        {% else %}
+            {# Show some example queries to run, maybe query syntax, something else? #}
+        {% endif %}
+       </div>
+
+{% endblock %}

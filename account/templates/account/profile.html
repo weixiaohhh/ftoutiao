@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block title %}Edit your account{% endblock %}
+{% block body_block %}
+
+    <h1>个人设置</h1>
+    <form action="." method="post" enctype="multipart/form-data">
+        {{ user_form.as_p }}
+        {{ profile_form.as_p }}
+        {% csrf_token %}
+        <input type="hidden" name="next" value="{{ next }}" />
+    <p><input type="submit" value="Save changes"></p>
+    </form>
+{% endblock %}

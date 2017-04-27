@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% load staticfiles %}
+
+{% block title %}仿开发者头条{% endblock %}
+
+{% block body_block %}
+
+  <ul>
+	<li><a class="btn btn-success" href="{% url 'social:begin' 'github' %}"><i class="fa fa-github" aria-hidden="true"></i>
+ GitHub</a></li>
+  </ul>
+</div>
+{% endblock %}
+<a class="btn btn-success" href="{% url 'social:begin' 'github' %}"><i class="fa fa-github"></i> GitHub</a>

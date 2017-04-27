@@ -1,0 +1,1 @@
+web: gunicorn toutiao.wsgi --log-file -

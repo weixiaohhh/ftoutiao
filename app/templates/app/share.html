@@ -1,0 +1,17 @@
+
+{% extends 'base.html' %}
+
+{% load staticfiles %}
+
+{% block title %}仿开发者头条{% endblock %}
+
+{% block body_block %}
+
+  <form action="." method="post" >
+    {{ form.as_p }}
+    {% csrf_token %}
+
+    <p><input type="submit" value="提交" class="btn btn-info"></p>
+  </form>
+  
+{% endblock %}
