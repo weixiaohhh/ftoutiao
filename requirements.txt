@@ -23,5 +23,5 @@ social-auth-app-django-mongoengine==1.0.0
 social-auth-core==1.2.0
 social-auth-storage-mongoengine==1.0.0
 static3==0.7.0
+whitenoise==3.3.0
 Whoosh==2.7.4
-whitenoise-3.3.0
