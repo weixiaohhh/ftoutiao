@@ -54,7 +54,9 @@ def subjectinfo(request, pk, choice):
 	choice_list = ['index', 'new','subscribers']
 	if choice not in choice_list:
 		raise Http404(u'<b>404,找不到你要访问的页面</b>')
-	return render(request, "app/subject_info.html ", context=context)
+
+	return render(request, 'app/subject_info.html', context=context)
+
 
 
 # 分享编辑
