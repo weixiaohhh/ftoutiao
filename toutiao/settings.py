@@ -93,7 +93,7 @@ WSGI_APPLICATION = 'toutiao.wsgi.application'
 import dj_database_url
 try:
 	from .local_setting import *
-except Exception as e:
+except IOError as e:
 	SECRET_KEY = config('SECRET_KEY')
 	DEBUG = config('DEBUG', default=False, cast=bool)
 	DATABASES = {
