@@ -1,3 +1,4 @@
+# coding:utf-8
 """
 Django settings for toutiao project.
 
@@ -162,9 +163,18 @@ LOGOUT_URL = reverse_lazy('logout')
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
+QINIU_ACCESS_KEY = 'XOI2XmE0ImhVn8St1YVYhHOP5bEOy01LV1M3kAub'
+QINIU_SECRET_KEY = 'KNcRWe-CJQhn5rFOuDxVDusghCZMA70Ss-smcBT-'
+QINIU_BUCKET_NAME = 'ftoutiao'
+QINIU_BUCKET_DOMAIN = 'http://ftoutiao.herokuapp.com/'
+QINIU_SECURE_URL = False
 
-MEDIA_URL = '/media/'
+PREFIX_URL = 'http://'
+MEDIA_URL = PREFIX_URL + QINIU_BUCKET_DOMAIN + '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
 
 AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
