@@ -1,3 +1,4 @@
+# coding:utf-8
 """
 Django settings for toutiao project.
 
@@ -138,7 +139,8 @@ USE_I18N = True
 
 USE_L10N = True
 
-USE_TZ = True
+USE_TZ = False
+
 
 
 # Static files (CSS, JavaScript, Images)
@@ -162,9 +164,23 @@ LOGOUT_URL = reverse_lazy('logout')
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
+#千牛图档配置
+QINIU_ACCESS_KEY = 'XOI2XmE0ImhVn8St1YVYhHOP5bEOy01LV1M3kAub'
+QINIU_SECRET_KEY = 'KNcRWe-CJQhn5rFOuDxVDusghCZMA70Ss-smcBT-'
+QINIU_BUCKET_NAME = 'ftoutiao'
+QINIU_BUCKET_DOMAIN = 'http://localhost:8000'
 
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+
+
+MEDIA_URL = QINIU_BUCKET_DOMAIN + '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+DEFAULT_FILE_STORAGE = 'qiniustorage.backends.QiniuMediaStorage' 
+
+
+
+
+
+
 
 AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
