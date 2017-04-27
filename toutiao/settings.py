@@ -93,7 +93,7 @@ WSGI_APPLICATION = 'toutiao.wsgi.application'
 import dj_database_url
 try:
 	from .local_setting import *
-except IOError as e:
+except Exception as e:
 	SECRET_KEY = config('SECRET_KEY')
 	DEBUG = config('DEBUG', default=False, cast=bool)
 	DATABASES = {
@@ -127,7 +127,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/1.10/topics/i18n/
 
-LANGUAGE_CODE = 'zh_Hans'
+LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'UTC'
 
