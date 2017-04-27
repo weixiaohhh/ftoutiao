@@ -161,23 +161,14 @@ LOGIN_URL = reverse_lazy('login')
 LOGOUT_URL = reverse_lazy('logout')
 
 
+
+STATIC_URL = '/static/'
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+
+
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-
-
-# 七牛图档配置
-QINIU_ACCESS_KEY = '-RrSfuebSkJRhM7Rz6SYixsu7DNR67jP1EFLVjLq'
-QINIU_SECRET_KEY = '2Db413L7M7lH4oYR0oD7il60fZP_FTv-1RD6hvmg'
-QINIU_BUCKET_NAME = 'ftoutiao'
-QINIU_BUCKET_DOMAIN = 'ftoutiao.herokuapp.com'
-QINIU_SECURE_URL = False
-
-PREFIX_URL = 'http://'
-MEDIA_URL = PREFIX_URL + QINIU_BUCKET_DOMAIN + '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-
-DEFAULT_FILE_STORAGE = 'qiniustorage.backends.QiniuMediaStorage'
-
-
 
 
 AUTHENTICATION_BACKENDS = (
