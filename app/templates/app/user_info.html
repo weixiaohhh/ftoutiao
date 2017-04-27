@@ -128,7 +128,7 @@ MARGIN-RIGHT: auto;
                 </div>
                 <div class="col-md-1">
                     <div class="row">
-                    <a href="{% url 'subjectinfo' item.author.user.id 'index' %}"> <img  alt="minggo - 开发者头条"/> </a>
+                    <a href="{% url 'subjectinfo' item.author.user.id 'index' %}"> <img src='{{ item.author.photo.url}}' width="48" > 
                     </div>
                     <div class="row">
                     <a href="{% url 'subjectinfo' item.author.user.id 'index' %}">{{ item.author }}</a>
@@ -213,7 +213,7 @@ MARGIN-RIGHT: auto;
                 </div>
                 <div class="col-md-1">
                     <div class="row">
-                    <a href="{% url 'subjectinfo' item.author.user.id 'index' %}"> <img  alt="minggo - 开发者头条"/> </a>
+                    <a href="{% url 'subjectinfo' item.author.user.id 'index' %}"> <img src='{{ item.author.photo.url}}' width="48" > 
                     </div>
                     <div class="row">
                     <a href="{% url 'subjectinfo' item.author.user.id 'index' %}">{{ item.author }}</a>
@@ -325,7 +325,7 @@ MARGIN-RIGHT: auto;
                 </div>
                 <div class="col-md-1">
                     <div class="row">
-                    <a href="{% url 'subjectinfo' item.author.user.id 'index' %}"> <img  alt="minggo - 开发者头条"/> </a>
+                    <a href="{% url 'subjectinfo' item.author.user.id 'index' %}"> <img src='{{ profile.photo.url}}' width="150" > 
                     </div>
                     <div class="row">
                     <a href="{% url 'subjectinfo' item.author.user.id 'index' %}">{{ item.author }}</a>
