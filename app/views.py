@@ -13,7 +13,7 @@ from django.contrib.auth import get_user_model
 User = get_user_model()
 
 # Create your views here.
-
+#caca
 class IndexvView(generic.ListView):
     template_name = "app/index.html"
     context_object_name = "articles"
