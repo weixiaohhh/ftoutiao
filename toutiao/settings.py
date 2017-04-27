@@ -101,7 +101,7 @@ except Exception as e:
 		DEBUG = False
 	DATABASES = {
     'default': dj_database_url.config(
-        default=config('DATABASE_URL')
+        default=os.environ.get('DATABASE_URL')
     )
 }
 
