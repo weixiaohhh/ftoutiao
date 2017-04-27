@@ -176,4 +176,4 @@ AUTHENTICATION_BACKENDS = (
 SOCIAL_AUTH_GITHUB_KEY = '254e1dc08a7a3ba2e1ab'
 SOCIAL_AUTH_GITHUB_SECRET = 'e90d27883f057bbbca22a50981eca07a20f1c30b'
 
-ALLOWED_HOSTS = ['mysite.com', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['mysite.com', 'localhost', '127.0.0.1','ftoutiao.herokuapp.com']
