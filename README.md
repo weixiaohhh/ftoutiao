@@ -17,8 +17,8 @@
 ### 原理说明
 - 后端用**django+sqlite**，前端使用**bootstrap**
 - 第三方社交登录 用的是**social-auth-app-django**库，实现可参考这篇[文章](https://simpleisbetterthancomplex.com/tutorial/2016/10/24/how-to-add-social-login-to-django.html?hmsr=toutiao.io&utm_medium=toutiao.io&utm_source=toutiao.io)
-- jQuery Ajax 实现无刷新等功能
-- 全文搜索 用的 django-haystack + Whoosh + jieba 这个三个库，具体实现 参考这篇[文章](http://www.jianshu.com/p/5073e25de698?hmsr=toutiao.io&utm_medium=toutiao.io&utm_source=toutiao.io)
+- **jQuery Ajax** 实现无刷新等功能
+- 全文搜索 用的 **django-haystack + Whoosh + jieba** 这个三个库，具体实现 参考这篇[文章](http://www.jianshu.com/p/5073e25de698?hmsr=toutiao.io&utm_medium=toutiao.io&utm_source=toutiao.io)
 - 网站的实现也有借鉴《Django By Example》，中文翻译[地址](http://www.jianshu.com/p/05810d38f93a)
 
 ### 下载安装
