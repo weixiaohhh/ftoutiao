@@ -5,7 +5,7 @@
 
 
 
-####示例:  
+#### 示例:  
 [网站地址](http://ftoutiao.herokuapp.com/)
 
 ### 实现 --
@@ -14,7 +14,7 @@
 -- 实现无刷新 点赞，收藏，订阅，关注，首页文章Ajax 分页
 -- 实现全文搜索
 
-###原理说明
+### 原理说明
 - 后端用**django+sqlite**，前端使用**bootstrap**
 - 第三方社交登录 用的是**social-auth-app-django**库，实现可参考这篇[文章](https://simpleisbetterthancomplex.com/tutorial/2016/10/24/how-to-add-social-login-to-django.html?hmsr=toutiao.io&utm_medium=toutiao.io&utm_source=toutiao.io)
 - jQuery Ajax 实现无刷新等功能
@@ -39,7 +39,7 @@ set S_A_G_S='XXXX'(Github 的OAuth2 秘钥)
 ### 注意事项
 - 注意 github 创建OAuth2(本地运行)
 -- 配置:
-> **Authorization callback URL**:http://127.0.0.1:8000/oauth/complete/github/
+> **Authorization callback URL**:http://127.0.0.1:8000/oauth/complete/github/ 
 > **Homepage URL**:http://127.0.0.1:8000/
 
 
