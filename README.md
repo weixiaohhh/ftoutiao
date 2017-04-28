@@ -24,7 +24,7 @@
 ### 下载安装
 ftoutiao:  
 ``` xml
-git clone 'xxx'
+git clone 'https://github.com/weixiaohhh/ftoutiao'
 pip install -r requirements.txt
 python manage.py migrate
 python manage.py runserver
