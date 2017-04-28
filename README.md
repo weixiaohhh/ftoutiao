@@ -10,9 +10,9 @@
 
 ### 实现 --
 * 开发者头条大部分功能实现
- * 第三方社交登录（github）
- * 实现无刷新 点赞，收藏，订阅，关注，首页文章Ajax 分页
- * 实现全文搜索
+ ** 第三方社交登录（github）
+ ** 实现无刷新 点赞，收藏，订阅，关注，首页文章Ajax 分页
+ ** 实现全文搜索
 
 ### 原理说明
 - 后端用**django+sqlite**，前端使用**bootstrap**
@@ -38,7 +38,7 @@ set S_A_G_S='XXXX'(Github 的OAuth2 秘钥)
 
 ### 注意事项
 - 注意 github 创建OAuth2(本地运行)
- - 配置:
+ -- 配置:
 > **Authorization callback URL**:http://127.0.0.1:8000/oauth/complete/github/     
 > **Homepage URL**:http://127.0.0.1:8000/    
 
