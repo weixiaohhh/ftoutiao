@@ -182,6 +182,6 @@ AUTHENTICATION_BACKENDS = (
 
 
 SOCIAL_AUTH_GITHUB_KEY = os.environ.get('S_A_G_K')
-SOCIAL_AUTH_GITHUB_SECRET = os.environ.geT('S_A_G_S')
+SOCIAL_AUTH_GITHUB_SECRET = os.environ.get('S_A_G_S')
 
 ALLOWED_HOSTS = ['mysite.com', 'localhost', '127.0.0.1']
